@@ -1,0 +1,86 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v9.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v9.0": {
+      "Inventory.API/1.0.0": {
+        "dependencies": {
+          "Inventory.Application": "1.0.0",
+          "Inventory.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "Inventory.API.dll": {}
+        }
+      },
+      "Inventory.Application/1.0.0": {
+        "dependencies": {
+          "Inventory.Domain": "1.0.0",
+          "Shared.Events": "1.0.0"
+        },
+        "runtime": {
+          "Inventory.Application.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Inventory.Domain/1.0.0": {
+        "runtime": {
+          "Inventory.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Inventory.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Inventory.Application": "1.0.0"
+        },
+        "runtime": {
+          "Inventory.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Shared.Events/1.0.0": {
+        "runtime": {
+          "Shared.Events.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Inventory.API/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Inventory.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Inventory.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Inventory.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Shared.Events/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

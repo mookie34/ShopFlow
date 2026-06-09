@@ -1,0 +1,161 @@
+{
+  "version": 3,
+  "targets": {
+    "net9.0": {
+      "Orders.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Orders.Domain": "1.0.0",
+          "Shared.Events": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Orders.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Orders.Application.dll": {}
+        }
+      },
+      "Orders.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/Orders.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Orders.Domain.dll": {}
+        }
+      },
+      "Orders.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "Orders.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Orders.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Orders.Infrastructure.dll": {}
+        }
+      },
+      "Shared.Events/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/Shared.Events.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Shared.Events.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Orders.Application/1.0.0": {
+      "type": "project",
+      "path": "../Orders.Application/Orders.Application.csproj",
+      "msbuildProject": "../Orders.Application/Orders.Application.csproj"
+    },
+    "Orders.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Orders.Domain/Orders.Domain.csproj",
+      "msbuildProject": "../Orders.Domain/Orders.Domain.csproj"
+    },
+    "Orders.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Orders.Infrastructure/Orders.Infrastructure.csproj",
+      "msbuildProject": "../Orders.Infrastructure/Orders.Infrastructure.csproj"
+    },
+    "Shared.Events/1.0.0": {
+      "type": "project",
+      "path": "../Shared.Events/Shared.Events.csproj",
+      "msbuildProject": "../Shared.Events/Shared.Events.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net9.0": [
+      "Orders.Application >= 1.0.0",
+      "Orders.Infrastructure >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\santiago.mazo\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\ShopFlow\\Orders.API\\Orders.API.csproj",
+      "projectName": "Orders.API",
+      "projectPath": "D:\\ShopFlow\\Orders.API\\Orders.API.csproj",
+      "packagesPath": "C:\\Users\\santiago.mazo\\.nuget\\packages\\",
+      "outputPath": "D:\\ShopFlow\\Orders.API\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\santiago.mazo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net9.0"
+      ],
+      "sources": {
+        "https://api.nuget.org/v3/index.json": {},
+        "https://pkgs.dev.azure.com/BancoW/Transversales/_packaging/BancoWCommon/nuget/v3/index.json": {}
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "projectReferences": {
+            "D:\\ShopFlow\\Orders.Application\\Orders.Application.csproj": {
+              "projectPath": "D:\\ShopFlow\\Orders.Application\\Orders.Application.csproj"
+            },
+            "D:\\ShopFlow\\Orders.Infrastructure\\Orders.Infrastructure.csproj": {
+              "projectPath": "D:\\ShopFlow\\Orders.Infrastructure\\Orders.Infrastructure.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.300"
+    },
+    "frameworks": {
+      "net9.0": {
+        "targetAlias": "net9.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.AspNetCore.App": {
+            "privateAssets": "none"
+          },
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.313/PortableRuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

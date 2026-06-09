@@ -1,0 +1,11 @@
+D:\ShopFlow\Inventory.Domain\bin\Debug\net9.0\Inventory.Domain.deps.json
+D:\ShopFlow\Inventory.Domain\bin\Debug\net9.0\Inventory.Domain.dll
+D:\ShopFlow\Inventory.Domain\bin\Debug\net9.0\Inventory.Domain.pdb
+D:\ShopFlow\Inventory.Domain\obj\Debug\net9.0\Inventory.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\ShopFlow\Inventory.Domain\obj\Debug\net9.0\Inventory.Domain.AssemblyInfoInputs.cache
+D:\ShopFlow\Inventory.Domain\obj\Debug\net9.0\Inventory.Domain.AssemblyInfo.cs
+D:\ShopFlow\Inventory.Domain\obj\Debug\net9.0\Inventory.Domain.csproj.CoreCompileInputs.cache
+D:\ShopFlow\Inventory.Domain\obj\Debug\net9.0\Inventory.Domain.dll
+D:\ShopFlow\Inventory.Domain\obj\Debug\net9.0\refint\Inventory.Domain.dll
+D:\ShopFlow\Inventory.Domain\obj\Debug\net9.0\Inventory.Domain.pdb
+D:\ShopFlow\Inventory.Domain\obj\Debug\net9.0\ref\Inventory.Domain.dll

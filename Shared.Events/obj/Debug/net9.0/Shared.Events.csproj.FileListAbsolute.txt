@@ -1,0 +1,11 @@
+D:\ShopFlow\Shared.Events\bin\Debug\net9.0\Shared.Events.deps.json
+D:\ShopFlow\Shared.Events\bin\Debug\net9.0\Shared.Events.dll
+D:\ShopFlow\Shared.Events\bin\Debug\net9.0\Shared.Events.pdb
+D:\ShopFlow\Shared.Events\obj\Debug\net9.0\Shared.Events.GeneratedMSBuildEditorConfig.editorconfig
+D:\ShopFlow\Shared.Events\obj\Debug\net9.0\Shared.Events.AssemblyInfoInputs.cache
+D:\ShopFlow\Shared.Events\obj\Debug\net9.0\Shared.Events.AssemblyInfo.cs
+D:\ShopFlow\Shared.Events\obj\Debug\net9.0\Shared.Events.csproj.CoreCompileInputs.cache
+D:\ShopFlow\Shared.Events\obj\Debug\net9.0\Shared.Events.dll
+D:\ShopFlow\Shared.Events\obj\Debug\net9.0\refint\Shared.Events.dll
+D:\ShopFlow\Shared.Events\obj\Debug\net9.0\Shared.Events.pdb
+D:\ShopFlow\Shared.Events\obj\Debug\net9.0\ref\Shared.Events.dll

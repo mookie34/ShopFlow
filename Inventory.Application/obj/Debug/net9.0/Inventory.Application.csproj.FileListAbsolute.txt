@@ -1,0 +1,17 @@
+D:\ShopFlow\Inventory.Application\bin\Debug\net9.0\Inventory.Application.deps.json
+D:\ShopFlow\Inventory.Application\bin\Debug\net9.0\Inventory.Application.dll
+D:\ShopFlow\Inventory.Application\bin\Debug\net9.0\Inventory.Application.pdb
+D:\ShopFlow\Inventory.Application\bin\Debug\net9.0\Inventory.Domain.dll
+D:\ShopFlow\Inventory.Application\bin\Debug\net9.0\Shared.Events.dll
+D:\ShopFlow\Inventory.Application\bin\Debug\net9.0\Inventory.Domain.pdb
+D:\ShopFlow\Inventory.Application\bin\Debug\net9.0\Shared.Events.pdb
+D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\Inventory.Application.csproj.AssemblyReference.cache
+D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\Inventory.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\Inventory.Application.AssemblyInfoInputs.cache
+D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\Inventory.Application.AssemblyInfo.cs
+D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\Inventory.Application.csproj.CoreCompileInputs.cache
+D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\Inventor.1DAC6D85.Up2Date
+D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\Inventory.Application.dll
+D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\refint\Inventory.Application.dll
+D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\Inventory.Application.pdb
+D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\ref\Inventory.Application.dll
