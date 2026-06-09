@@ -25,7 +25,8 @@
           "net9.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/BancoW/Transversales/_packaging/BancoWCommon/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
@@ -55,6 +56,12 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "MassTransit": {
+              "target": "Package",
+              "version": "[8.3.6, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -96,7 +103,8 @@
           "net9.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/BancoW/Transversales/_packaging/BancoWCommon/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {
@@ -160,7 +168,8 @@
           "net9.0"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/BancoW/Transversales/_packaging/BancoWCommon/nuget/v3/index.json": {}
         },
         "frameworks": {
           "net9.0": {

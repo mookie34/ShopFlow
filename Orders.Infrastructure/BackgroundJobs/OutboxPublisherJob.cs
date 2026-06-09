@@ -1,42 +1,51 @@
-﻿namespace Orders.Infrastructure.BackgroundJobs
+﻿using MassTransit;
+using Microsoft.EntityFrameworkCore;
+using Orders.Infrastructure.Persistence;
+using Shared.Events;
+using System.Text.Json;
+
+namespace Orders.Infrastructure.BackgroundJobs;
+
+public class OutboxPublisherJob
 {
-    using MassTransit;
-    using Microsoft.EntityFrameworkCore;
-    using Orders.Infrastructure.Persistence;
-    using Shared.Events;
-    using System.Linq;
-    using System.Threading.Tasks;
+    private readonly OrdersDbContext _context;
+    private readonly ISendEndpointProvider _sendEndpointProvider;
 
-    public class OutboxPublisherJob
+    public OutboxPublisherJob(
+        OrdersDbContext context,
+        ISendEndpointProvider sendEndpointProvider)
     {
-        private readonly OrdersDbContext _context;
-        private readonly IPublishEndpoint _publishEndpoint;
+        _context = context;
+        _sendEndpointProvider = sendEndpointProvider;
+    }
 
-        public OutboxPublisherJob(OrdersDbContext context, IPublishEndpoint publishEndpoint)
+    public async Task ExecuteAsync()
+    {
+        var pendingMessages = await _context.OutboxMessages
+            .Where(m => !m.Published)
+            .OrderBy(m => m.CreatedAt)
+            .Take(20)
+            .ToListAsync();
+
+        foreach (var message in pendingMessages)
         {
-            _context = context;
-            _publishEndpoint = publishEndpoint;
-        }
-
-        public async Task ExecuteAsync()
-        {
-            var pendingMessages = await _context.OutboxMessages
-                .Where(m => !m.Published)
-                .OrderBy(m => m.CreatedAt)
-                .Take(20)
-                .ToListAsync();
-
-            foreach (var message in pendingMessages)
+            if (message.EventType.Equals(nameof(OrderCreatedEvent), StringComparison.OrdinalIgnoreCase))
             {
-                if (message.EventType == nameof(OrderCreatedEvent))
-                {
-                    var orderCreatedEvent = System.Text.Json.JsonSerializer.Deserialize<OrderCreatedEvent>(message.Payload);
-                    await _publishEndpoint.Publish(orderCreatedEvent);
-                }
+                var orderCreatedEvent = JsonSerializer
+                    .Deserialize<OrderCreatedEvent>(message.Payload);
 
-                message.MarkAsPublished();
+                if (orderCreatedEvent is not null)
+                {
+                    var endpoint = await _sendEndpointProvider
+                        .GetSendEndpoint(new Uri("queue:order-created"));
+
+                    await endpoint.Send(orderCreatedEvent);
+                }
             }
-            await _context.SaveChangesAsync();
+
+            message.MarkAsPublished();
         }
+
+        await _context.SaveChangesAsync();
     }
 }
