@@ -35,3 +35,15 @@ D:\ShopFlow\Orders.API\obj\Debug\net9.0\refint\Orders.API.dll
 D:\ShopFlow\Orders.API\obj\Debug\net9.0\Orders.API.pdb
 D:\ShopFlow\Orders.API\obj\Debug\net9.0\Orders.API.genruntimeconfig.cache
 D:\ShopFlow\Orders.API\obj\Debug\net9.0\ref\Orders.API.dll
+D:\ShopFlow\Orders.API\obj\Debug\net9.0\Orders.API.sourcelink.json
+D:\ShopFlow\Orders.API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\FluentValidation.dll
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\MediatR.dll
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\MediatR.Contracts.dll
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\Microsoft.IdentityModel.Abstractions.dll
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\Microsoft.IdentityModel.Logging.dll
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\System.Diagnostics.DiagnosticSource.dll

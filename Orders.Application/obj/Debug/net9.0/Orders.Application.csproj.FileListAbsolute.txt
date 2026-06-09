@@ -15,3 +15,4 @@ D:\ShopFlow\Orders.Application\obj\Debug\net9.0\Orders.Application.dll
 D:\ShopFlow\Orders.Application\obj\Debug\net9.0\refint\Orders.Application.dll
 D:\ShopFlow\Orders.Application\obj\Debug\net9.0\Orders.Application.pdb
 D:\ShopFlow\Orders.Application\obj\Debug\net9.0\ref\Orders.Application.dll
+D:\ShopFlow\Orders.Application\obj\Debug\net9.0\Orders.Application.sourcelink.json

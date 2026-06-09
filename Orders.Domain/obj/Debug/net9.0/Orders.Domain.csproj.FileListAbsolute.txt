@@ -9,3 +9,4 @@ D:\ShopFlow\Orders.Domain\obj\Debug\net9.0\Orders.Domain.dll
 D:\ShopFlow\Orders.Domain\obj\Debug\net9.0\refint\Orders.Domain.dll
 D:\ShopFlow\Orders.Domain\obj\Debug\net9.0\Orders.Domain.pdb
 D:\ShopFlow\Orders.Domain\obj\Debug\net9.0\ref\Orders.Domain.dll
+D:\ShopFlow\Orders.Domain\obj\Debug\net9.0\Orders.Domain.sourcelink.json

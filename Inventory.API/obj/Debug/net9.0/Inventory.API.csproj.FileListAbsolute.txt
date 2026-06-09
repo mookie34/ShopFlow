@@ -35,3 +35,5 @@ D:\ShopFlow\Inventory.API\obj\Debug\net9.0\refint\Inventory.API.dll
 D:\ShopFlow\Inventory.API\obj\Debug\net9.0\Inventory.API.pdb
 D:\ShopFlow\Inventory.API\obj\Debug\net9.0\Inventory.API.genruntimeconfig.cache
 D:\ShopFlow\Inventory.API\obj\Debug\net9.0\ref\Inventory.API.dll
+D:\ShopFlow\Inventory.API\obj\Debug\net9.0\Inventory.API.sourcelink.json
+D:\ShopFlow\Inventory.API\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt

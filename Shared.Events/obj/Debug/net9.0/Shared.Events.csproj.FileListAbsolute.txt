@@ -9,3 +9,4 @@ D:\ShopFlow\Shared.Events\obj\Debug\net9.0\Shared.Events.dll
 D:\ShopFlow\Shared.Events\obj\Debug\net9.0\refint\Shared.Events.dll
 D:\ShopFlow\Shared.Events\obj\Debug\net9.0\Shared.Events.pdb
 D:\ShopFlow\Shared.Events\obj\Debug\net9.0\ref\Shared.Events.dll
+D:\ShopFlow\Shared.Events\obj\Debug\net9.0\Shared.Events.sourcelink.json

@@ -17,3 +17,4 @@ D:\ShopFlow\Inventory.Infrastructure\obj\Debug\net9.0\Inventory.Infrastructure.d
 D:\ShopFlow\Inventory.Infrastructure\obj\Debug\net9.0\refint\Inventory.Infrastructure.dll
 D:\ShopFlow\Inventory.Infrastructure\obj\Debug\net9.0\Inventory.Infrastructure.pdb
 D:\ShopFlow\Inventory.Infrastructure\obj\Debug\net9.0\ref\Inventory.Infrastructure.dll
+D:\ShopFlow\Inventory.Infrastructure\obj\Debug\net9.0\Inventory.Infrastructure.sourcelink.json

@@ -15,3 +15,4 @@ D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\Inventory.Application.dll
 D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\refint\Inventory.Application.dll
 D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\Inventory.Application.pdb
 D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\ref\Inventory.Application.dll
+D:\ShopFlow\Inventory.Application\obj\Debug\net9.0\Inventory.Application.sourcelink.json
