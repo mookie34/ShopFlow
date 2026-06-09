@@ -1,34 +1,82 @@
+using FluentValidation;
+using Hangfire;
+using MassTransit;
+using Microsoft.EntityFrameworkCore;
+using Orders.Application.Commands.CreateOrder;
+using Orders.Application.Interfaces;
+using Orders.Infrastructure.BackgroundJobs;
+using Orders.Infrastructure.Persistence;
+using Orders.Infrastructure.Persistence.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Controllers
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+// DbContext
+builder.Services.AddDbContext<OrdersDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("OrdersDb")));
+
+// Repositories
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOutboxRepository, OutboxRepository>();
+
+// MediatR
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(
+        typeof(CreateOrderHandler).Assembly));
+
+// FluentValidation
+builder.Services.AddValidatorsFromAssemblyContaining<CreateOrderValidator>();
+
+// MassTransit + RabbitMQ
+builder.Services.AddMassTransit(x =>
+{
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host(builder.Configuration["RabbitMQ:Host"], h =>
+        {
+            h.Username(builder.Configuration["RabbitMQ:Username"]);
+            h.Password(builder.Configuration["RabbitMQ:Password"]);
+        });
+
+        cfg.ConfigureEndpoints(context);
+    });
+});
+
+// Hangfire
+builder.Services.AddHangfire(config =>
+    config.UseSqlServerStorage(
+        builder.Configuration.GetConnectionString("OrdersDb")));
+builder.Services.AddHangfireServer();
+builder.Services.AddScoped<OutboxPublisherJob>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Swagger
+app.UseSwagger();
+app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
 
-var summaries = new[]
+// Hangfire Dashboard
+app.UseHangfireDashboard("/hangfire");
+
+// Registra el job para correr cada 30 segundos
+RecurringJob.AddOrUpdate<OutboxPublisherJob>(
+    "outbox-publisher",
+    job => job.ExecuteAsync(),
+    "*/30 * * * * *"
+);
+
+// Aplica migraciones automáticamente al iniciar
+using (var scope = app.Services.CreateScope())
 {
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-});
+    var db = scope.ServiceProvider.GetRequiredService<OrdersDbContext>();
+    db.Database.Migrate();
+}
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

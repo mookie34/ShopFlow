@@ -1,13 +1,11 @@
-﻿namespace Orders.Application.Commands.CreateOrder
-{
-    using MediatR;
-    using Orders.Application.Contracts;
-    using System;
+﻿using MediatR;
+using Orders.Application.Contracts;
 
-    public record CreateOrderCommand(
-        Guid CustomerId,
-        Guid ProductId,
-        int Quantity,
-        decimal TotalAmount
-    ) : IRequest<CreateOrderResponse>;
-}
+namespace Orders.Application.Commands.CreateOrder;
+
+public record CreateOrderCommand(
+    Guid CustomerId,
+    Guid ProductId,
+    int Quantity,
+    decimal TotalAmount
+) : IRequest<CreateOrderResponse>;
