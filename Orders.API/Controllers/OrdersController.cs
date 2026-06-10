@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Orders.Application.Commands.CreateOrder;
+using Polly.CircuitBreaker;
 
 namespace Orders.API.Controllers;
 
@@ -28,6 +29,14 @@ public class OrdersController : ControllerBase
         catch (InvalidOperationException ex)
         {
             return BadRequest(new { error = ex.Message });
+        }
+        catch (HttpRequestException)
+        {
+            return StatusCode(503, new { error = "Inventory service is currently unavailable. Please try again later." });
+        }
+        catch (BrokenCircuitException)
+        {
+            return StatusCode(503, new { error = "Inventory service is currently unavailable due to high failure rate. Please try again later." });
         }
     }
 }

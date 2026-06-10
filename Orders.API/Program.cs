@@ -8,6 +8,7 @@ using Orders.Infrastructure.BackgroundJobs;
 using Orders.Infrastructure.HttpClients;
 using Orders.Infrastructure.Persistence;
 using Orders.Infrastructure.Persistence.Repositories;
+using Polly;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,7 +29,30 @@ builder.Services.AddScoped<IOutboxRepository, OutboxRepository>();
 builder.Services.AddHttpClient<IInventoryClient, InventoryClient>(client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["Services:InventoryUrl"]!);
-});
+})
+    .AddTransientHttpErrorPolicy(policy =>
+    policy.WaitAndRetryAsync(
+        retryCount: 3,
+       sleepDurationProvider: attempt => TimeSpan.FromSeconds(Math.Pow(2, attempt)),
+       onRetry: (outcome, timespan, retryAttempt, context) =>
+       {
+           Console.WriteLine($"[RETRY] Attempt {retryAttempt} after {timespan.TotalSeconds}s. Reason: {outcome.Exception?.Message ?? outcome.Result.StatusCode.ToString()}");
+       }
+       )
+    )
+    .AddTransientHttpErrorPolicy(policy =>
+    policy.CircuitBreakerAsync(
+        handledEventsAllowedBeforeBreaking: 5,
+        durationOfBreak: TimeSpan.FromSeconds(30),
+        onBreak: (outcome, timespan) =>
+        {
+            Console.WriteLine($"[CIRCUIT BREAKER] Breaking the circuit for {timespan.TotalSeconds}s. Reason: {outcome.Exception?.Message ?? outcome.Result.StatusCode.ToString()}");
+        },
+        onReset: () =>
+        {
+            Console.WriteLine("[CIRCUIT BREAKER] Circuit reset.");
+        }
+    ));
 
 // MediatR
 builder.Services.AddMediatR(cfg =>
