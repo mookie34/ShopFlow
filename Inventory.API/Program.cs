@@ -34,6 +34,7 @@ builder.Services.AddMassTransit(x =>
 
         cfg.ReceiveEndpoint("order-created", e =>
         {
+            e.Bind("order-created");
             e.ConfigureConsumer<OrderCreatedConsumer>(context);
         });
     });
