@@ -11,18 +11,30 @@
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IOutboxRepository _outboxRepository;
+        private readonly IInventoryClient _inventoryClient;
 
-        public CreateOrderHandler(IOrderRepository orderRepository, IOutboxRepository outboxRepository)
+        public CreateOrderHandler(IOrderRepository orderRepository, IOutboxRepository outboxRepository, IInventoryClient inventoryClient)
         {
             _orderRepository = orderRepository;
             _outboxRepository = outboxRepository;
+            _inventoryClient = inventoryClient;
         }
 
         public async Task<CreateOrderResponse> Handle(
             CreateOrderCommand command,
             CancellationToken cancellationToken)
         {
-            //1. crea la entidad de dominio
+            //1. Verifica stock de forma sincrona
+            var isAvailable = await _inventoryClient.CheckStockAsync(
+                command.ProductId,
+                command.Quantity,
+                cancellationToken);
+
+            if (!isAvailable)
+                throw new InvalidOperationException(
+                    $"Insufficient stock for product {command.ProductId}");
+
+            //2. crea la entidad de dominio
             var order = Order.Create(
                 command.CustomerId,
                 command.ProductId,
@@ -45,7 +57,7 @@
             };
 
             await _outboxRepository.AddAsync(
-                nameof(orderCreatedEvent),
+                nameof(OrderCreatedEvent),
                 JsonSerializer.Serialize(orderCreatedEvent),
                 cancellationToken
                 );

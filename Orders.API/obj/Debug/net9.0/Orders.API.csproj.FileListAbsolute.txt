@@ -175,3 +175,6 @@ D:\ShopFlow\Orders.API\bin\Debug\net9.0\ru\Microsoft.CodeAnalysis.Workspaces.MSB
 D:\ShopFlow\Orders.API\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\ShopFlow\Orders.API\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\ShopFlow\Orders.API\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\Microsoft.Extensions.Http.Polly.dll
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\Polly.dll
+D:\ShopFlow\Orders.API\bin\Debug\net9.0\Polly.Extensions.Http.dll

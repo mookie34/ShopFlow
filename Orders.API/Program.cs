@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Orders.Application.Commands.CreateOrder;
 using Orders.Application.Interfaces;
 using Orders.Infrastructure.BackgroundJobs;
+using Orders.Infrastructure.HttpClients;
 using Orders.Infrastructure.Persistence;
 using Orders.Infrastructure.Persistence.Repositories;
 
@@ -22,6 +23,12 @@ builder.Services.AddDbContext<OrdersDbContext>(options =>
 // Repositories
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOutboxRepository, OutboxRepository>();
+
+// HTTP Clients
+builder.Services.AddHttpClient<IInventoryClient, InventoryClient>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["Services:InventoryUrl"]!);
+});
 
 // MediatR
 builder.Services.AddMediatR(cfg =>
